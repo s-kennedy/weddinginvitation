@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Arvo|Bree+Serif|Coming+Soon|Poppins|Vollkorn" rel="stylesheet">
+  <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous">
+  </script>
+  <meta charset="UTF-8">
+  <title>Wedding time!!</title>
+</head>
+
+<style>
+  body {
+    /*font-family: 'Poppins', sans-serif;*/
+    font-family: 'Arvo', serif;
+    /*font-family: 'Vollkorn', serif;*/
+    margin: 0;
+  }
+
+  section {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  section.welcome {
+    color: #fff;
+  }
+
+  section.welcome h1 {
+    font-size: 4em;
+  }
+
+  div.background {
+    background-color: #007D7D;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    z-index: -2;
+  }
+
+  div.background::after {
+    content: "";
+    background: url('images/sharondani.jpg') no-repeat center center fixed;
+    background-size: cover;
+    opacity: 0.4;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    z-index: -1;   
+  }
+
+  h1 {
+    font-size: 3em;
+    text-align: center;
+    margin: 20px 50px;
+  }
+
+  h2 {
+    font-size: 2em;
+    text-align: center;
+    margin: 20px 50px;
+  }
+
+  p {
+    font-size: 1.5em;
+    text-align: center;
+  }
+
+  a {
+    color: #FF5E5E;
+  }
+
+  a:visited {
+    color: #D10000;
+  }
+
+  textarea {
+    font-size: 1.5em;
+    padding: 0.5em;
+    margin: 0.5em;
+  }
+
+  .light {
+    background-color: #77DADA;
+    color: #007D7D;
+  }
+
+  .dark {
+    background-color: #007D7D;
+    color: #77DADA;
+  }
+
+  a.button {
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    margin: 0 4px;
+    text-decoration: none;    
+    color: white;
+    font-size: 1.5em;
+  }
+
+  .light .button {
+    background: #007D7D;
+  }
+
+  .dark .button {
+    background: #77DADA;
+  }
+
+  .highlight {
+    background: #FF5E5E !important;
+  }
+
+  .highlight-text {
+    color: #fff !important;
+  }
+
+  .options {
+    flex-direction: row;
+    text-align: center;
+  }
+
+
+  img.pepper {
+    height: 30px;
+    width: 30px;
+  }
+
+</style>
+
+<body>
+  <section id="announcement" class="welcome">
+    <div class="background"></div>
+    <h1>We're getting married! <br>And we want to celebrate with you!</h1>
+    <h2>Do you want to celebrate with us?</h2>
+    <div class="options">
+      <a class="button highlight" href="#dinner">Yes!</a>
+      <a class="button" href="#">No</a>
+    </div>
+  </section>
+
+  <section id="dinner" class="light">
+    <h1>We're having a dinner party on <span class="highlight-text">December 21, 2016</span> in Toronto.</h1>
+    <h2>Can you make it?</h2>
+    <div class="options">
+      <a class="button" href="#another-time">Nope</a>
+      <a class="button highlight" href="#dinner-preferences">Yes!</a>
+    </div>
+  </section>
+
+  <section id="another-time" class="dark">
+    <h1>That's ok, we'll celebrate another time :)</h1>
+    <h2>For now, would you like to leave us a message?</h2>
+    <div class="options">
+      <a href="#" class="button exit">No thanks.</a>
+      <a href="#message" class="button highlight">Sure!</a>
+    </div>
+  </section>
+  
+  <section id="dinner-preferences" class="dark">
+    <h1>We're still planning the menu... </h1>
+    <h2>Do you have any dietary restrictions?</h2>
+    <textarea name="restrictions" id="restrictions" cols="60" rows="3"></textarea>
+    <div>
+      <h2>What's your preferred spice level?</h2>
+      <div class="options">
+        <a href="#restaurant" class="button">
+          <img src="image/pepper.png" alt="pepper" class="pepper" >
+        </a>
+        <a href="#restaurant" class="button">
+          <img src="image/pepper.png" alt="pepper" class="pepper" >
+          <img src="image/pepper.png" alt="pepper" class="pepper" >
+        </a>
+        <a href="#restaurant" class="button">
+          <img src="image/pepper.png" alt="pepper" class="pepper" >
+          <img src="image/pepper.png" alt="pepper" class="pepper" >
+          <img src="image/pepper.png" alt="pepper" class="pepper" >
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="restaurant" class="light">
+    <h1>The dinner is at <a href="https://www.instagram.com/soithaito/" target="_blank">SOI</a>, a Thai restaurant in Little Italy.</h1>
+    <p>Dinner starts at 6:30pm so please arrive between 6:00 - 6:15pm.</p>
+    <p>The address is 651 College St, Toronto.</p>
+    <p>Dress code is festive!</p>
+    <div id="map">
+    </div>
+    <a href="#thanks" class="button highlight">Got it</a>
+  </section>
+
+  <section id="thanks" class="dark">
+    <h1>Thanks for coming, can't wait to see you on the 21st!</h1>
+    <h2>For now, would you like to leave us a message?</h2>
+    <div class="options">
+      <a class="button exit">No thanks.</a>
+      <a href="#message" class="button highlight">Sure!</a>
+    </div>
+  </section>
+
+  <section id="message" class="light">
+    <div id="leave-a-message">
+      <h2>Leave us a message, we'll get it as an email!</h2>
+      <textarea name="message" id="thanks-message" cols="60" rows="10"></textarea>
+    </div>
+    <a class="button submit highlight">Submit</a>
+  </section>
+
+</body>
+</html>
+
+<script>
+  
+</script>
