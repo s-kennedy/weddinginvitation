@@ -259,18 +259,18 @@
     }
 
     $('#announcement a.button.highlight, #dinner a.button.highlight').on('click', function() {
-      updateGuestData('attending', true);
+      updateGuestData('attending', 'yes');
     }) 
 
     $('#announcement a.button.no, #dinner a.button.no').on('click', function() {
-      updateGuestData('attending', false)
+      updateGuestData('attending', 'no')
     })
 
     $('#dinner-preferences a.button.spice').on('click', function(e) {
       var spiceLevel = e.currentTarget.id;
       var restrictions = $('textarea#restrictions').val();
       updateGuestData('restrictions', restrictions);
-      updateGuestData('spice-level', spiceLevel);
+      updateGuestData('spice_level', spiceLevel);
     })
 
     $('#message a.submit').on('click', function() {
