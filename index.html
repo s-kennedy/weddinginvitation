@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Arvo|Bree+Serif|Coming+Soon|Poppins|Vollkorn" rel="stylesheet">
   <script
     src="https://code.jquery.com/jquery-3.1.1.min.js"
     integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
     crossorigin="anonymous">
   </script>
+  <script src="https://use.fontawesome.com/ab5e247e92.js"></script>
   <meta charset="UTF-8">
   <title>Wedding time!!</title>
 </head>
@@ -50,13 +52,21 @@
 
   div.background::after {
     content: "";
-    background: url('images/sharondani.jpg') no-repeat center center fixed;
-    background-size: cover;
     opacity: 0.4;
     height: 100vh;
     width: 100%;
     position: absolute;
     z-index: -1;   
+  }
+
+  div.background.welcome::after {
+    background: url('images/sharondani.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  div.background.final::after {
+    background: url('images/camino.jpg') no-repeat center center fixed;
+    background-size: cover;
   }
 
   h1 {
@@ -88,6 +98,9 @@
     font-size: 1.5em;
     padding: 0.5em;
     margin: 0.5em;
+    width: 80%;
+    min-width: 250px;
+    min-height: 60px;
   }
 
   .light {
@@ -122,6 +135,10 @@
     background: #FF5E5E !important;
   }
 
+  .highlight2 {
+    background: #D10000 !important;
+  }
+
   .highlight-text {
     color: #fff !important;
   }
@@ -131,22 +148,63 @@
     text-align: center;
   }
 
+  #leave-a-message {
+    text-align: center;
+  }
 
   img.pepper {
     height: 30px;
     width: 30px;
   }
 
+  #restaurant i {
+    font-size: 1.2em;
+  }
+
+@media (max-width: 360px) {
+  section.welcome h1 {
+    font-size: 2em;
+  }
+
+  section.welcome span.guest-text {
+    font-size: 1.2em;
+  }
+
+  h1 {
+    font-size: 2em;
+    text-align: center;
+    margin: 20px 50px;
+  }
+
+  h2 {
+    font-size: 1.2em;
+    text-align: center;
+    margin: 20px 50px;
+  }
+
+  p {
+    font-size: 1em;
+    text-align: center;
+  }
+  a.button {
+    padding: 6px;
+    font-size: 1em;
+  }
+  textarea {
+    font-size: 1em;
+  }
+}
+
 </style>
 
 <body>
   <section id="announcement" class="welcome">
-    <div class="background"></div>
+    <div class="background welcome"></div>
     <h1><span class="guest-text"></span><br>Dani and Sharon are getting married!<br>And we want to celebrate with you.</h1>
     <h2>Do you want to celebrate with us?</h2>
     <div class="options">
       <a class="button highlight" href="#dinner">Yes!</a>
-      <a class="button no" href="#">No</a>
+      <a class="button no" href="#bye">No</a>
     </div>
   </section>
 
@@ -155,7 +213,8 @@
     <h2>Can you make it?</h2>
     <div class="options">
       <a class="button no" href="#another-time">Nope</a>
-      <a class="button highlight" href="#dinner-preferences">Yes!</a>
+      <a class="button highlight" href="#dinner-preferences">Yes, just me</a>
+      <a class="button highlight2" href="#dinner-preferences">Yes, me plus one</a>
     </div>
   </section>
 
@@ -171,7 +230,7 @@
   <section id="dinner-preferences" class="dark">
     <h1>We're still planning the menu... </h1>
     <h2>Do you have any dietary restrictions?</h2>
-    <textarea name="restrictions" id="restrictions" cols="60" rows="3"></textarea>
+    <textarea name="restrictions" id="restrictions" rows="3"></textarea>
     <div>
       <h2>What's your preferred spice level?</h2>
       <div class="options">
@@ -194,16 +253,18 @@
 
   <section id="restaurant" class="light">
     <h1>The dinner is at <a href="https://www.instagram.com/soithaito/" target="_blank">SOI</a>, a Thai restaurant in Little Italy.</h1>
-    <p>Dinner starts at 6:30pm so please arrive between 6:00 - 6:15pm.</p>
-    <p>The address is 651 College St, Toronto.</p>
-    <p>Dress code is festive!</p>
-    <div id="map">
+    <div class="restaurant-info">
+      <div>
+        <p>Dinner starts at 6:30pm so please arrive between 6:00 - 6:15pm.</p>
+        <p>The address is 651 College St, Toronto. <a href="https://www.google.ca/maps/place/Soi+Thai+Street+Food/@43.6548977,-79.4182341,17z/data=!3m1!4b1!4m5!3m4!1s0x882b34f1b3769d11:0x8ea884f337f97762!8m2!3d43.6548977!4d-79.4160454" target="_blank"><i class="fa fa-map-marker" aria-hidden="true"></i></a></p>
+        <p>Dress code is festive!</p>
+      </div>
     </div>
     <a href="#thanks" class="button highlight">Got it</a>
   </section>
 
   <section id="thanks" class="dark">
-    <h1>Thanks for coming, can't wait to see you on the 21st!</h1>
+    <h1>Thanks for your RSVP!</h1>
     <h2>For now, would you like to leave us a message?</h2>
     <div class="options">
       <a href="#bye" class="button no">No thanks.</a>
@@ -214,14 +275,14 @@
   <section id="message" class="light">
     <div id="leave-a-message">
       <h2>Leave us a message, we'll get it as an email.</h2>
-      <textarea name="message" id="message-text" cols="60" rows="10"></textarea>
+      <textarea name="message" id="message-text" rows="10"></textarea>
     </div>
     <a href="#bye" class="button submit highlight">Submit</a>
   </section>
 
   <section id="bye" class="welcome">
-    <div class="background"></div>
-    <h1>See you soon!</h1>
+    <div class="background final"></div>
+    <h1>See you!</h1>
   </section>
 
 </body>
@@ -260,11 +321,18 @@
 
     $('#announcement a.button.highlight, #dinner a.button.highlight').on('click', function() {
       updateGuestData('attending', 'yes');
+      updateGuestData('plus_one', 'no');
+    }) 
+
+    $('#dinner a.button.highlight2').on('click', function() {
+      updateGuestData('attending', 'yes');
+      updateGuestData('plus_one', 'yes');
     }) 
 
     $('#announcement a.button.no, #dinner a.button.no').on('click', function() {
       updateGuestData('attending', 'no')
     })
+
 
     $('#dinner-preferences a.button.spice').on('click', function(e) {
       var spiceLevel = e.currentTarget.id;
